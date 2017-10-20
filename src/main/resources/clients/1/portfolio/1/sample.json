@@ -150,31 +150,31 @@
     "cash_totals": {
       "amount_available_to_invest": {
         "currency": "GBP",
-        "value": "100"
+        "value": "1000"
       },
       "amount_available_to_transfer": {
         "currency": "GBP",
-        "value": "100"
+        "value": "540"
       },
       "cash_balance": {
         "currency": "GBP",
-        "value": "100"
+        "value": "2200"
       },
       "cash_on_capital": {
         "currency": "GBP",
-        "value": "100"
+        "value": "400"
       },
       "income_transfers": {
         "currency": "GBP",
-        "value": "100"
+        "value": "650"
       },
       "other_transfers": {
         "currency": "GBP",
-        "value": "100"
+        "value": "150"
       },
       "payments": {
         "currency": "GBP",
-        "value": "100"
+        "value": "170"
       },
       "pending_charges": {
         "currency": "GBP",
@@ -199,17 +199,17 @@
         "value": "100"
       },
       "day_gain_loss": {
-        "percent": "2",
+        "percent": "4",
         "price": {
           "currency": "GBP",
-          "value": "100"
+          "value": "165"
         }
       },
       "gain_loss": {
         "percent": "2",
         "price": {
           "currency": "GBP",
-          "value": "100"
+          "value": "320"
         }
       },
       "open_cost": {
@@ -221,17 +221,17 @@
         "value": "100"
       },
       "overall_day_gain_loss": {
-        "percent": "2",
+        "percent": "4",
         "price": {
           "currency": "GBP",
-          "value": "100"
+          "value": "850"
         }
       },
       "overall_gain_loss": {
-        "percent": "2",
+        "percent": "10",
         "price": {
           "currency": "GBP",
-          "value": "100"
+          "value": "450"
         }
       },
       "overall_open_cost": {
