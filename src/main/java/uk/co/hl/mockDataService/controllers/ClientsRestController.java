@@ -36,13 +36,15 @@ public class ClientsRestController {
     }
 
     @GetMapping("{clientNo}/portfolio")
-    public String getPortoflio(@PathVariable String clientNo) {
-        return ClientsRestController.PORTFOLIOS.get(clientNo);
+    public ResponseEntity<InputStreamResource> getPortoflio(@PathVariable String clientNo) throws IOException {
+        return getFileFromPath("clients/" + clientNo + "/portfolio/sample.json");
     }
 
-    @GetMapping("{clientNo}/portfolio/{product_no}")
-    public String getPortoflioProducts(@PathVariable String clientNo, @PathVariable String productNo) {
-        return ClientsRestController.PORTFOLIOS_PRODUCTS.get(clientNo);
+    @GetMapping("{clientNo}/portfolio/{productNo}")
+    public ResponseEntity<InputStreamResource> getPortoflioProducts(@PathVariable String clientNo, @PathVariable String productNo)
+            throws IOException {
+
+        return getFileFromPath("clients/" + clientNo + "/portfolio/" + productNo + "/sample.json");
     }
 
     @GetMapping("{clientNo}/alerts")
