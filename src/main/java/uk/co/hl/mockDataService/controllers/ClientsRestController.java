@@ -5,35 +5,11 @@ import org.springframework.core.io.InputStreamResource;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
 
 @RestController
 @RequestMapping("clients")
 public class ClientsRestController {
-
-    private static final Map<String, String> PORTFOLIOS = new HashMap<>();
-
-    static {
-        PORTFOLIOS.put("clineCode1", "one");
-        PORTFOLIOS.put("clineCode2", "two");
-    }
-
-    private static final Map<String, String> PORTFOLIOS_PRODUCTS = new HashMap<>();
-
-    static {
-        PORTFOLIOS_PRODUCTS.put("clineCode1", "second product");
-        PORTFOLIOS_PRODUCTS.put("clineCode2", "two rpoduct");
-    }
-
-    private static final Map<String, String> ALERTS = new HashMap<>();
-
-    static {
-        ALERTS.put("clineCode1", "second alert");
-        ALERTS.put("clineCode2", "two alert");
-    }
 
     @GetMapping("{clientNo}/portfolio")
     public ResponseEntity<InputStreamResource> getPortoflio(@PathVariable String clientNo) throws IOException {
