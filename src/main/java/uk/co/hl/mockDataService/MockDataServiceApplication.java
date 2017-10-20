@@ -9,4 +9,5 @@ public class MockDataServiceApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(MockDataServiceApplication.class, args);
 	}
+
 }

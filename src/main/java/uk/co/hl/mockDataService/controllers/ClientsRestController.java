@@ -1,7 +1,12 @@
 package uk.co.hl.mockDataService.controllers;
 
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.core.io.InputStreamResource;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -30,19 +35,32 @@ public class ClientsRestController {
         ALERTS.put("clineCode2", "two alert");
     }
 
-    @GetMapping("{clientNo}/portoflio")
+    @GetMapping("{clientNo}/portfolio")
     public String getPortoflio(@PathVariable String clientNo) {
         return ClientsRestController.PORTFOLIOS.get(clientNo);
     }
 
-    @GetMapping("{clientNo}/portoflio/{product_no}")
+    @GetMapping("{clientNo}/portfolio/{product_no}")
     public String getPortoflioProducts(@PathVariable String clientNo, @PathVariable String productNo) {
         return ClientsRestController.PORTFOLIOS_PRODUCTS.get(clientNo);
     }
 
     @GetMapping("{clientNo}/alerts")
-    public String getAlerts(@PathVariable String clientNo) {
-        return ClientsRestController.PORTFOLIOS_PRODUCTS.get(clientNo);
+    public ResponseEntity<InputStreamResource> getAlerts(@PathVariable String clientNo) throws IOException {
+        return getFileFromPath("clients/" + clientNo + "/alerts/sample.json");
+    }
+
+    private ResponseEntity<InputStreamResource> getFileFromPath(String path)
+            throws IOException {
+
+        ClassPathResource pdfFile = new ClassPathResource(path);
+
+        return ResponseEntity
+                .ok()
+                .contentLength(pdfFile.contentLength())
+                .contentType(
+                        MediaType.parseMediaType(MediaType.APPLICATION_JSON_VALUE))
+                .body(new InputStreamResource(pdfFile.getInputStream()));
     }
 
 }
